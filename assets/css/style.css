@@ -11,11 +11,11 @@
     width: 600px; 
     height: 600px;
     transform: translate(-50%, -50%);
+    background: url("../img/background.png");
 }
 
 canvas {
     position: absolute;
-    background: blue;
     top: 0;
     left: 0;
     width: 100%;
