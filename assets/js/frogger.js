@@ -11,7 +11,7 @@ class Frogger {
         this.frameY = 0;
     }
     update() {
-        console.log(update);
+        console.log("update");
     }
     draw() {
         ctx3.fillStyle = "green";
