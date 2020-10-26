@@ -48,6 +48,12 @@ function initObstacles() {
         let x = i * 400;  
         carsArray.push(new Obstacle(x, canvas.height - grid * 4 - 20, grid * 2.5, grid, 2, "car"));
     }
+    // River - log array
+    // lane 1 
+    for (let i = 0; i < 2; i++) {
+        let x = i * 400;    
+        logsArray.push(new Obstacle(x, canvas.height - grid * 5 - 30, grid * 2, grid, -2, "log"));
+    }
 }
 initObstacles();
 
@@ -56,5 +62,9 @@ function handleObstacles() {
     for (let i = 0; i < carsArray.length; i++) {
         carsArray[i].update();
         carsArray[i].draw();
+    }
+    for (let i = 0; i < logsArray.length; i++) {
+        logsArray[i].update();
+        logsArray[i].draw();
     }
 }
