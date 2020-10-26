@@ -12,10 +12,14 @@ class Obstacle {
         this.type = type;
     } 
     draw() {
+        ctx1.fillStyle = "blue";
         ctx1.fillRect(this.x, this.y, this.width, this.height);
     }  
     update() {
         this.x += this.speed * gamespeed;   // we need to multiply gamespeed to keep the same plus or minus value
+        if (this.x > canvas.width + this.width) {
+            this.x = 0 - this.width;    // will reset the cars behind the left edge once they pass the right edge
+        }
     }
 }
 
@@ -24,7 +28,7 @@ function initObstacles() {
     // lane 1
     for (let i = 0; i < 2; i++) {
         let x = i * 350;    // everytime we generate a new car its x value will be different
-        carsArray.push(new Obstacle(x, canvas.height - grid * 2 - 20, grid, grid, 1, "car"));
+        carsArray.push(new Obstacle(x, canvas.height - grid * 2 - 20, grid * 2, grid, 1, "car"));
     }
 }
 initObstacles();
