@@ -21,3 +21,11 @@ window.addEventListener("keyup", function(e) {
     delete keys[e.keyCode];
     frogger.moving = false;
 })
+
+function scored() {
+    score ++;
+    gamespeed =+ 0.05;  // to increase game difficulty
+    // resets the frog once the player moves it past the top edge of the canvas
+    frogger.x = canvas.width/2 - frogger.width/2;  
+    frogger.y = canvas.height - frogger.height - 40;
+}

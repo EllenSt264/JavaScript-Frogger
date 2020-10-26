@@ -35,6 +35,9 @@ class Frogger {
                 this.moving = true;
             }
         }
+        if (this.y < 0) {   // when player moves past the top edge of the canvas
+            scored();
+        }
     }
     draw() {
         ctx3.fillStyle = "green";
