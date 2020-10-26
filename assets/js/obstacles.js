@@ -48,11 +48,16 @@ function initObstacles() {
         let x = i * 400;  
         carsArray.push(new Obstacle(x, canvas.height - grid * 4 - 20, grid * 2.5, grid, 2, "car"));
     }
-    // River - log array
-    // lane 1 
+    // River 
+    // lane 1  (logs) 
     for (let i = 0; i < 2; i++) {
         let x = i * 400;    
         logsArray.push(new Obstacle(x, canvas.height - grid * 5 - 30, grid * 2, grid, -2, "log"));
+    }
+    // lane 2 (turtles)
+    for (let i = 0; i < 3; i++) {   // turtles are smaller so we'll make them closer together
+        let x = i * 200;    
+        logsArray.push(new Obstacle(x, canvas.height - grid * 6 - 30, grid, grid, 1, "turtle"));
     }
 }
 initObstacles();
