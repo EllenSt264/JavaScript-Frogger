@@ -17,9 +17,17 @@ class Obstacle {
     }  
     update() {
         this.x += this.speed * gamespeed;   // we need to multiply gamespeed to keep the same plus or minus value
-        if (this.x > canvas.width + this.width) {
+        if (this.speed > 0) {   // for cars moving to the right
+            if (this.x > canvas.width + this.width) {
             this.x = 0 - this.width;    // will reset the cars behind the left edge once they pass the right edge
+            }
         }
+        else {      // speed is less than zero so cars are moving to the left
+            if (this.x < 0 - this.width) {     
+                this.x = canvas.width + this.width;     // '+ this.width' will give the cars a small delay before they appear again
+            }
+        }
+        
     }
 }
 
@@ -29,6 +37,11 @@ function initObstacles() {
     for (let i = 0; i < 2; i++) {
         let x = i * 350;    // everytime we generate a new car its x value will be different
         carsArray.push(new Obstacle(x, canvas.height - grid * 2 - 20, grid * 2, grid, 1, "car"));
+    }
+    // lane 2
+    for (let i = 0; i < 2; i++) {
+        let x = i * 300;    // everytime we generate a new car its x value will be different
+        carsArray.push(new Obstacle(x, canvas.height - grid * 3 - 20, grid * 2, grid, -2, "car"));
     }
 }
 initObstacles();
