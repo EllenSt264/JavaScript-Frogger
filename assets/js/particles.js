@@ -1,7 +1,7 @@
 class Particle {
     constructor(x, y) {
-        this.x = x;
-        this.y = y;
+        this.x = x + 25;
+        this.y = y + 25;
         this.radius = Math.random() * 20 + 1;
         this.opacity = 1;
         // Plus numbers will make the particles go up
@@ -10,7 +10,7 @@ class Particle {
         this.directionY = Math.random() * 1 - 0.5;
     }
     draw() {
-        ctx3.fillStyle = "rgba(150, 150, 150, 1)";
+        ctx3.fillStyle = "rgba(150, 150, 150,"+ this.opacity + ")";
         ctx3.beginPath();
         ctx3.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
         ctx3.fill();
@@ -19,6 +19,12 @@ class Particle {
     update() {
         this.x += this.directionX;
         this.y += this.directionY;
+        if (this.opacity > 0.1) {
+            this.opacity -= 0.9;
+        }
+        if (this.radius > 0.15) {
+            this.radius -= 0.14;
+        }
     }
 }
 
