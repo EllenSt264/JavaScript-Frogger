@@ -59,6 +59,7 @@ function handleScoreBoard() {
     ctx4.strokeText("Game Speed: " + gamespeed.toFixed(1), 35, 75);     // toFixed(1) ensures we only see the gamespeed by 1 decimal point
 }
 
+
 // Collision detection between two rectangles
 
 /*  This will explain the function:

@@ -12,8 +12,12 @@ class Obstacle {
         this.type = type;
     } 
     draw() {
-        ctx3.fillStyle = "blue";
-        ctx3.fillRect(this.x, this.y, this.width, this.height);
+        if (this.type === "turtle") {
+            ctx1.fillRect(this.x, this.y, this.width, this.height);     // so we can see the collision radius
+            ctx1.drawImage(turtle, 0, 0, 70, 70, this.x, this.y, this.width, this.height);
+        }
+        //ctx3.fillStyle = "blue";
+        //ctx3.fillRect(this.x, this.y, this.width, this.height);
     }  
     update() {
         this.x += this.speed * gamespeed;   // we need to multiply gamespeed to keep the same plus or minus value
