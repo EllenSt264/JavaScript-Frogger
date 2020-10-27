@@ -54,4 +54,5 @@ const log = new Image();
 log.src = "../assets/img/log.png";
 
 const car = new Image();
-car.src = "../assets/img/cars.png"
+car.src = "../assets/img/cars.png";
+let numberOfCars = 3;

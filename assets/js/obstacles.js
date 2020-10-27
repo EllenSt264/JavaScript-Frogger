@@ -13,6 +13,7 @@ class Obstacle {
         this.frameX = 0;
         this.frameY = 0;
         this.randomise = Math.floor(Math.random() * 30 + 30);
+        this.carType = Math.floor(Math.random() * numberOfCars);
     } 
     draw() {
         if (this.type === "turtle") {
@@ -30,19 +31,22 @@ class Obstacle {
             ctx1.drawImage(log, this.x, this.y, this.width, this.height);
         }
         else {
-            ctx2.drawImage(car, 0, 0, grid * 2, grid, this.x, this.y, this.width, this.height);
+            ctx2.drawImage(car, this.frameX * this.width, this.carType * this.height, grid * 2, grid, this.x, this.y, this.width, this.height);
         }
     }  
     update() {
         this.x += this.speed * gamespeed;   // we need to multiply gamespeed to keep the same plus or minus value
         if (this.speed > 0) {   // for cars moving to the right
             if (this.x > canvas.width + this.width) {
-            this.x = 0 - this.width;    // will reset the cars behind the left edge once they pass the right edge
+                this.x = 0 - this.width;    // will reset the cars behind the left edge once they pass the right edge
+                this.carType = (Math.floor(Math.random() * numberOfCars)); 
             }
         }
         else {      // speed is less than zero so cars are moving to the left
-            if (this.x < 0 - this.width) {     
+            if (this.x < 0 - this.width) { 
+                this.frameX = 1;    
                 this.x = canvas.width + this.width;     // '+ this.width' will give the cars a small delay before they appear again
+                this.carType = (Math.floor(Math.random() * numberOfCars));
             }
         }
         
