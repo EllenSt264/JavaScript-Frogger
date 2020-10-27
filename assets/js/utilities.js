@@ -4,6 +4,7 @@ function animate() {
     frogger.draw();
     frogger.update();
     handleObstacles();
+    ctx4.drawImage(grass, 0, 0, canvas.width, canvas.height);
     requestAnimationFrame(animate);
 }
 
