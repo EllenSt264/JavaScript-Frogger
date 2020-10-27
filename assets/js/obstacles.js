@@ -24,11 +24,14 @@ class Obstacle {
                     this.frameX++;
                 }
             }
-            //ctx1.fillRect(this.x, this.y, this.width, this.height);     // so we can see the collision radius
             ctx1.drawImage(turtle, this.frameX * 70, this.frameY * 70, 70, 70, this.x, this.y, this.width, this.height);
         }
-        //ctx3.fillStyle = "blue";
-        //ctx3.fillRect(this.x, this.y, this.width, this.height);
+        else if (this.type === "log") {
+            ctx1.drawImage(log, this.x, this.y, this.width, this.height);
+        }
+        else {
+            ctx2.drawImage(car, 0, 0, grid * 2, grid, this.x, this.y, this.width, this.height);
+        }
     }  
     update() {
         this.x += this.speed * gamespeed;   // we need to multiply gamespeed to keep the same plus or minus value
