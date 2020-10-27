@@ -109,6 +109,12 @@ function handleObstacles() {
                 frogger.x += logsArray[i].speed;    // allows frogger to ride on logs and turtles
                 safe = true;
             }
+            if (!safe) {    // if frogger falls in the water
+                for (let i = 0; i < 30; i++) {
+                    ripplesArray.unshift(new Particle(frogger.x, frogger.y));
+                }
+                resetGame();
+            }
         }
     }
 }
