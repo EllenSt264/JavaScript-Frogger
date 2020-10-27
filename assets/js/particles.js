@@ -62,6 +62,9 @@ function handleParticles() {
             particlesArray.unshift(new Particle(frogger.x, frogger.y));
         }
     }
+} 
+
+function handleRipples() {
     // Water Ripples
     for (let i = 0; i < ripplesArray.length; i++) {
         ripplesArray[i].ripple();   // want to call ripple() instead of update()
@@ -78,4 +81,4 @@ function handleParticles() {
             ripplesArray.unshift(new Particle(frogger.x, frogger.y));
         }
     }
-}   
+}
