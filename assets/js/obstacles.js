@@ -101,4 +101,14 @@ function handleObstacles() {
             resetGame();
         }
     }
+    // collisions with logs and turtles
+    if (frogger.y < 250 && frogger.y > 100) {
+        safe = false;
+        for (let i = 0; i < logsArray.length; i++) {
+            if (collision(frogger, logsArray[i])) {
+                frogger.x += logsArray[i].speed;    // allows frogger to ride on logs and turtles
+                safe = true;
+            }
+        }
+    }
 }
