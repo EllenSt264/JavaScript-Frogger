@@ -40,7 +40,7 @@ function handleParticles() {
         }
     }
     if (((keys[37] || keys[38] || keys[39] || keys[40]) || (keys[65] || keys[87] || keys[68] || keys[83])) 
-    && frogger.y > 100 && particlesArray.length < maxParticles + 10) {
+    && frogger.y > 250 && particlesArray.length < maxParticles + 10) {
         for (let i = 0; i < 10; i++) {
             particlesArray.unshift(new Particle(frogger.x, frogger.y));
         }
