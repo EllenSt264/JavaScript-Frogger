@@ -43,7 +43,6 @@ function scored() {
 }
 
 // Score board
-
 function handleScoreBoard() {
     // Score Board Text
     ctx4.fillStyle = "black";
@@ -58,4 +57,43 @@ function handleScoreBoard() {
     ctx4.strokeText("Collisions: " + collisionsCount, 35, 55);
     // Game Speed Count
     ctx4.strokeText("Game Speed: " + gamespeed.toFixed(1), 35, 75);     // toFixed(1) ensures we only see the gamespeed by 1 decimal point
+}
+
+// Collision detection between two rectangles
+
+/*  This will explain the function:
+
+If first.x is more than second.x plus second.width
+then the rectangles are far enough on the horizontal x-axis
+which means that they do not collide.
+So if any of the first conditions are true then there is no collision
+
+Use exclamation points to turn the statement into false.
+The OR operator will return true if ANY of the statements involved are true.
+If any of the statements are true then there is no collision, so we
+want the function to return false,
+which is why we must use the exclamation
+mark to return the opposite.
+
+On the otherhand, 
+if all four statements return false then it means the two rectangles are overlapping.
+The function will want to return false but the exclamation mark converts it
+to true, so collision will return true.
+*/
+
+function collision(first, second) {
+    return !(first.x > second.x + second.width || first.x + first.width < second.x ||
+                first.y > second.y + second.height || first.y + first.height < second.y)
+}
+
+/* When frogger gets hit by car or falls into water,
+reset its x and y axis to the starting position, 
+and reset score to 0, increase collisions count
+and return gamespeed back to 1 */
+function resetGame() {
+    frogger.x = canvas.width/2 - frogger.width/2;  
+    frogger.y = canvas.height - frogger.height - 40;
+    score = 0;
+    collisionsCount++;
+    gamespeed = 1;
 }
