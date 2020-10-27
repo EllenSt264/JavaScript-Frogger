@@ -12,8 +12,8 @@ class Obstacle {
         this.type = type;
     } 
     draw() {
-        ctx1.fillStyle = "blue";
-        ctx1.fillRect(this.x, this.y, this.width, this.height);
+        ctx3.fillStyle = "blue";
+        ctx3.fillRect(this.x, this.y, this.width, this.height);
     }  
     update() {
         this.x += this.speed * gamespeed;   // we need to multiply gamespeed to keep the same plus or minus value
