@@ -10,11 +10,22 @@ class Obstacle {
         this.height = height;
         this.speed = speed;
         this.type = type;
+        this.frameX = 0;
+        this.frameY = 0;
+        this.randomise = Math.floor(Math.random() * 30 + 30);
     } 
     draw() {
         if (this.type === "turtle") {
-            ctx1.fillRect(this.x, this.y, this.width, this.height);     // so we can see the collision radius
-            ctx1.drawImage(turtle, 0, 0, 70, 70, this.x, this.y, this.width, this.height);
+            if (frame % this.randomise === 0) {
+                if (this.frameX >= 1) {
+                this.frameX = 0;
+                } 
+                else {
+                    this.frameX++;
+                }
+            }
+            //ctx1.fillRect(this.x, this.y, this.width, this.height);     // so we can see the collision radius
+            ctx1.drawImage(turtle, this.frameX * 70, this.frameY * 70, 70, 70, this.x, this.y, this.width, this.height);
         }
         //ctx3.fillStyle = "blue";
         //ctx3.fillRect(this.x, this.y, this.width, this.height);
